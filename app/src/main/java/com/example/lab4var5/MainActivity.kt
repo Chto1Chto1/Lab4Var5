@@ -53,7 +53,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
     var result by remember { mutableStateOf("") }
 
     Column(modifier = modifier.fillMaxSize()) {
-        // Заголовок
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -70,7 +69,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Поле ввода
         Row(
             modifier = Modifier.padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -86,14 +84,14 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Кнопка OK
         Button(
             onClick = {
                 val symbol = input.firstOrNull()
                 result = when {
-                    input.isBlank() -> "Введите символ"
+                    symbol == null -> "Введите символ"
                     symbol !in 'a'..'z' -> "Это не латинская строчная буква"
-                    else -> "OK"
+                    symbol in "aeiou" -> "Это гласные буквы"
+                    else -> "Возможно, это согласные буквы"
                 }
             },
             modifier = Modifier
@@ -105,7 +103,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Результат
         Text(
             text = result,
             fontSize = 18.sp,
