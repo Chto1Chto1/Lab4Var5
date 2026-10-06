@@ -89,6 +89,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 val symbol = input.firstOrNull()
                 result = when {
                     symbol == null -> "Введите символ"
+                    input.length > 1 -> "Введите ровно один символ"
                     symbol !in 'a'..'z' -> "Это не латинская строчная буква"
                     symbol in "aeiou" -> "Это гласные буквы"
                     else -> "Возможно, это согласные буквы"
