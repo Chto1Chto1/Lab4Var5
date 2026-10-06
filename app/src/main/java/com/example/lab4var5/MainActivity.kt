@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -79,6 +80,19 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 onValueChange = { input = it },
                 modifier = Modifier.weight(1f)
             )
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // Кнопка OK
+        Button(
+            onClick = {
+            },
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .width(120.dp)
+        ) {
+            Text("OK")
         }
     }
 }
