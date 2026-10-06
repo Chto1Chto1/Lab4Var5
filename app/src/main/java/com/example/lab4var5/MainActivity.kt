@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -49,6 +50,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     var input by remember { mutableStateOf("") }
+    var result by remember { mutableStateOf("") }
 
     Column(modifier = modifier.fillMaxSize()) {
         // Заголовок
@@ -94,6 +96,18 @@ fun MainScreen(modifier: Modifier = Modifier) {
         ) {
             Text("OK")
         }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // Результат
+        Text(
+            text = result,
+            fontSize = 18.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+        )
     }
 }
 
