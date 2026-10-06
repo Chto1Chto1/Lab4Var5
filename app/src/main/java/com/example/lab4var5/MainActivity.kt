@@ -89,6 +89,12 @@ fun MainScreen(modifier: Modifier = Modifier) {
         // Кнопка OK
         Button(
             onClick = {
+                val symbol = input.firstOrNull()
+                result = when {
+                    input.isBlank() -> "Введите символ"
+                    symbol !in 'a'..'z' -> "Это не латинская строчная буква"
+                    else -> "OK"
+                }
             },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
